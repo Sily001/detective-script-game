@@ -79,7 +79,7 @@
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    button {
+    button, .button-link {
       border: 1px solid var(--line);
       border-radius: 8px;
       min-height: 40px;
@@ -89,9 +89,13 @@
       cursor: pointer;
       backdrop-filter: blur(14px);
       transition: transform .16s ease, border-color .16s ease, background .16s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    button:hover {
+    button:hover, .button-link:hover {
       transform: translateY(-1px);
       border-color: rgba(216, 184, 110, .72);
       background: rgba(216, 184, 110, .13);
@@ -160,7 +164,7 @@
       gap: 6px;
     }
 
-    .controls button {
+    .controls button, .controls .button-link {
       min-height: 34px;
       border-radius: 999px;
       padding: 7px 11px;
@@ -628,11 +632,11 @@
       <span>最后一杯雨前茶</span>
     </div>
     <div class="controls">
-      <button type="button" data-jump="cover">封面</button>
-      <button type="button" data-jump="scene">现场</button>
-      <button type="button" data-jump="suspects">询问</button>
-      <button type="button" data-jump="secrets">隐情</button>
-      <button type="button" data-jump="verdict">结案</button>
+      <a class="button-link" href="#cover">封面</a>
+      <a class="button-link" href="#scene">现场</a>
+      <a class="button-link" href="#suspects">询问</a>
+      <a class="button-link" href="#secrets">隐情</a>
+      <a class="button-link" href="#verdict">结案</a>
       <button type="button" id="musicBtn">播放音乐</button>
       <button type="button" id="resetBtn">重开</button>
     </div>
@@ -644,7 +648,7 @@
       <h1>最后一杯<br>雨前茶</h1>
       <p class="lead">雨夜，老茶馆老板死在主茶桌旁。毒不在茶里，监控少了七分钟，后门却没有撬痕。</p>
       <div class="actions">
-        <button class="primary" type="button" data-jump="brief">开始调查</button>
+        <a class="button-link primary" href="#brief">开始调查</a>
         <button type="button" id="coverMusic">播放氛围音乐</button>
       </div>
     </div>
@@ -669,7 +673,7 @@
         </article>
       </div>
       <div class="actions">
-        <button class="primary" type="button" data-jump="scene">进入现场</button>
+        <a class="button-link primary" href="#scene">进入现场</a>
       </div>
     </div>
   </section>
@@ -704,7 +708,7 @@
       <h2>时间线</h2>
       <div class="timeline" id="timelineRows"></div>
       <div class="actions">
-        <button class="primary" type="button" data-jump="verdict">提交结案</button>
+        <a class="button-link primary" href="#verdict">提交结案</a>
       </div>
     </div>
   </section>
@@ -716,7 +720,7 @@
       <p class="value-line">这不是一个“谁最坏”的故事。茶馆里每个人都被现实推过一把：亲情、债务、体面、沉默和生计。真正让案件发生的，不只是毒，而是多年没人敢说出口的亏欠。</p>
       <div class="secret-grid" id="secretGrid"></div>
       <div class="actions">
-        <button class="primary" type="button" data-jump="verdict">带着这些隐情结案</button>
+        <a class="button-link primary" href="#verdict">带着这些隐情结案</a>
       </div>
     </div>
   </section>
@@ -1063,8 +1067,14 @@
       toast.timer = window.setTimeout(() => el.classList.remove("show"), 1800);
     }
 
-    document.querySelectorAll("[data-jump]").forEach(btn => {
-      btn.addEventListener("click", () => document.getElementById(btn.dataset.jump).scrollIntoView({ behavior: "smooth" }));
+    document.addEventListener("click", event => {
+      const link = event.target.closest("a[href^='#']");
+      if (!link) return;
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", link.getAttribute("href"));
     });
 
     document.getElementById("combineBtn").addEventListener("click", combineEvidence);
