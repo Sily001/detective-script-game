@@ -30,7 +30,12 @@
       min-height: 100vh;
       font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "STSong", Georgia, serif;
       color: var(--ink);
-      background: #0a0e0d;
+      background:
+        linear-gradient(180deg, rgba(6, 9, 9, .08), rgba(6, 9, 9, .86)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1000' viewBox='0 0 1600 1000'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%232f3834'/%3E%3Cstop offset='.52' stop-color='%231a201e'/%3E%3Cstop offset='1' stop-color='%23090d0d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23g)'/%3E%3Cpath d='M0 705h1600v295H0z' fill='%23101413'/%3E%3Cpath d='M110 160h365v520H110zM600 132h388v548H600zM1110 176h370v504h-370z' fill='%23333c37'/%3E%3Cpath d='M150 210h280v420H150zM650 190h288v440H650zM1162 226h260v404h-260z' fill='%230a0f10'/%3E%3Cpath d='M430 125c30 168 28 338-8 512M990 116c-24 173-22 345 4 520' stroke='%23515a50' stroke-width='12'/%3E%3Cellipse cx='805' cy='760' rx='370' ry='78' fill='%23241412'/%3E%3Crect x='510' y='690' width='590' height='68' rx='28' fill='%2354382a'/%3E%3Crect x='604' y='580' width='396' height='126' rx='10' fill='%236b4935'/%3E%3Ccircle cx='726' cy='550' r='38' fill='%23d2b66f'/%3E%3Cpath d='M707 540c56-68 156-60 198 4' fill='none' stroke='%23d2b66f' stroke-width='20' stroke-linecap='round'/%3E%3Crect x='904' y='520' width='86' height='118' rx='9' fill='%23957a4b'/%3E%3Cpath d='M1250 120c64 160 54 370-8 572' stroke='%23717b66' stroke-width='18' fill='none'/%3E%3Cpath d='M1270 152c-122 45-202 132-260 268' stroke='%23717b66' stroke-width='10' fill='none'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       overflow-x: hidden;
     }
 
@@ -38,7 +43,8 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -3;
+      z-index: 0;
+      pointer-events: none;
       background:
         linear-gradient(180deg, rgba(6, 9, 9, .1), rgba(6, 9, 9, .88)),
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1000' viewBox='0 0 1600 1000'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%232f3834'/%3E%3Cstop offset='.52' stop-color='%231a201e'/%3E%3Cstop offset='1' stop-color='%23090d0d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23g)'/%3E%3Cpath d='M0 705h1600v295H0z' fill='%23101413'/%3E%3Cpath d='M110 160h365v520H110zM600 132h388v548H600zM1110 176h370v504h-370z' fill='%23333c37'/%3E%3Cpath d='M150 210h280v420H150zM650 190h288v440H650zM1162 226h260v404h-260z' fill='%230a0f10'/%3E%3Cpath d='M430 125c30 168 28 338-8 512M990 116c-24 173-22 345 4 520' stroke='%23515a50' stroke-width='12'/%3E%3Cellipse cx='805' cy='760' rx='370' ry='78' fill='%23241412'/%3E%3Crect x='510' y='690' width='590' height='68' rx='28' fill='%2354382a'/%3E%3Crect x='604' y='580' width='396' height='126' rx='10' fill='%236b4935'/%3E%3Ccircle cx='726' cy='550' r='38' fill='%23d2b66f'/%3E%3Cpath d='M707 540c56-68 156-60 198 4' fill='none' stroke='%23d2b66f' stroke-width='20' stroke-linecap='round'/%3E%3Crect x='904' y='520' width='86' height='118' rx='9' fill='%23957a4b'/%3E%3Cpath d='M1250 120c64 160 54 370-8 572' stroke='%23717b66' stroke-width='18' fill='none'/%3E%3Cpath d='M1270 152c-122 45-202 132-260 268' stroke='%23717b66' stroke-width='10' fill='none'/%3E%3C/svg%3E");
@@ -50,7 +56,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -2;
+      z-index: 0;
       pointer-events: none;
       background-image:
         repeating-linear-gradient(106deg, transparent 0 16px, rgba(210, 231, 234, .16) 17px, transparent 19px),
@@ -62,7 +68,7 @@
     .grain {
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: 0;
       pointer-events: none;
       opacity: .22;
       background-image: radial-gradient(rgba(255,255,255,.18) 1px, transparent 1px);
@@ -178,6 +184,7 @@
       place-items: center;
       padding: 86px 360px 54px 48px;
       position: relative;
+      z-index: 1;
     }
 
     .slide-inner {
@@ -585,6 +592,7 @@
       .slide { padding-right: 48px; }
       .evidence-dock {
         position: static;
+        z-index: 1;
         width: auto;
         max-height: none;
         margin: 0 18px 24px;
@@ -635,8 +643,8 @@
       <a class="button-link" href="#cover">封面</a>
       <a class="button-link" href="#scene">现场</a>
       <a class="button-link" href="#suspects">询问</a>
-      <a class="button-link" href="#secrets">隐情</a>
       <a class="button-link" href="#verdict">结案</a>
+      <a class="button-link" href="#secrets">尾声</a>
       <button type="button" id="musicBtn">播放音乐</button>
       <button type="button" id="resetBtn">重开</button>
     </div>
@@ -669,7 +677,7 @@
         </article>
         <article>
           <h3>目标</h3>
-          <p>找出凶手、动机、进入方式、作案手法，并解释茶杯为什么错位。</p>
+          <p>找出凶手、动机、进入方式、作案手法，并补齐六段证据链。</p>
         </article>
       </div>
       <div class="actions">
@@ -713,18 +721,6 @@
     </div>
   </section>
 
-  <section class="slide" id="secrets">
-    <div class="slide-inner">
-      <div class="kicker">chapter 05</div>
-      <h2>每个人都在守着一场雨</h2>
-      <p class="value-line">这不是一个“谁最坏”的故事。茶馆里每个人都被现实推过一把：亲情、债务、体面、沉默和生计。真正让案件发生的，不只是毒，而是多年没人敢说出口的亏欠。</p>
-      <div class="secret-grid" id="secretGrid"></div>
-      <div class="actions">
-        <a class="button-link primary" href="#verdict">带着这些隐情结案</a>
-      </div>
-    </div>
-  </section>
-
   <section class="slide" id="verdict">
     <div class="slide-inner">
       <div class="kicker">final chapter</div>
@@ -751,12 +747,37 @@
             <option value="door">从后门闯入直接下毒</option>
           </select>
         </label>
+        <label>进入路线
+          <select name="route">
+            <option value="">请选择</option>
+            <option value="backdoor">后门进入，避开正门视线</option>
+            <option value="front">从正门混入大厅</option>
+            <option value="upstairs">从二楼下到茶席</option>
+          </select>
+        </label>
+        <label>关键误导
+          <select name="decoy">
+            <option value="">请选择</option>
+            <option value="receipt">阿岚的药房小票</option>
+            <option value="daughter">林知雨的争吵</option>
+            <option value="regular">许伯提前离开</option>
+          </select>
+        </label>
         <label>你的推理笔记
-          <textarea name="notes" placeholder="写下证据链，例如：监控空白、后门钥匙、账本亏空、茶杯错位。"></textarea>
+          <textarea name="notes" placeholder="写下证据链：杯位、进出路线、财务动机、不在场证明、毒物载体、误导烟雾弹。"></textarea>
         </label>
         <button class="primary" type="submit">提交结案报告</button>
         <div id="verdictResult"></div>
       </form>
+    </div>
+  </section>
+
+  <section class="slide" id="secrets">
+    <div class="slide-inner">
+      <div class="kicker">epilogue</div>
+      <h2>每个人都在守着一场雨</h2>
+      <p class="value-line">这不是一个“谁最坏”的故事。茶馆里每个人都被现实推过一把：亲情、债务、体面、沉默和生计。真正让案件发生的，不只是毒，而是多年没人敢说出口的亏欠。</p>
+      <div class="secret-grid" id="secretGrid"></div>
     </div>
   </section>
 
@@ -799,9 +820,15 @@
       kettle: ["余温茶壶", "壶身仍温热，水位显示案发后有人重新添过水。"],
       note: ["潮湿字条", "字条写着“别让她知道七年前那件事”，墨迹被雨水晕开。"],
       towel: ["茶巾残香", "茶巾有苦杏仁气味，但毒物并不在茶水里。"],
+      clock: ["停摆挂钟", "墙上的老挂钟停在 20:47，钟摆夹着半截潮湿茶梗，像是有人匆忙撞到过。"],
+      call: ["通话记录", "沈曼 20:41 给周启明打过一通 28 秒电话，通话后她没有再进入正门。"],
+      falseConsent: ["伪造授权", "监控删除记录使用老板账号，但登录地点来自包间旁的账务电脑。"],
       inferenceCup: ["杯位被调换", "裂纹、口红印和茶壶水位共同说明：死者喝到的不是原本放在他面前的那杯。"],
       inferenceDoor: ["后门有人进出", "后门钥匙与缺失监控能互相印证：有人避开正门，在七分钟空白里进入茶馆。"],
-      inferenceMotive: ["财务动机成立", "账本夹页和地产封蜡指向合伙人与收购方存在私下交易。"]
+      inferenceMotive: ["财务动机成立", "账本夹页和地产封蜡指向合伙人与收购方存在私下交易。"],
+      inferenceAlibi: ["不在场证明崩塌", "挂钟停摆与监控空白对上了 20:47，周启明所谓一直在包间的说法失去支撑。"],
+      inferencePoison: ["毒物载体锁定", "茶巾残香和余温茶壶说明毒物不是直接下进茶汤，而是通过杯沿接触后再被热水冲淡。"],
+      inferenceDecoy: ["烟雾弹成立", "药房小票与伪造授权连在一起，说明阿岚被利用成最显眼的嫌疑人。"]
     };
 
     const hotspots = [
@@ -812,7 +839,9 @@
       { id: "ledger", icon: "账", x: 34, y: 76, title: "旧账本", text: "账本最后几页被裁掉。夹层里留着一张复印纸：老板打算明天向女儿和警方公开亏空。" },
       { id: "kettle", icon: "壶", x: 58, y: 48, title: "铜茶壶", text: "茶壶水位比服务记录多出半壶，壶底还有余温。有人在死亡后用热水冲淡了现场味道。" },
       { id: "note", icon: "纸", x: 15, y: 67, title: "窗边纸团", text: "纸条被雨打湿，只能辨认出“别让她知道七年前那件事”。字迹像长期写账的人。" },
-      { id: "towel", icon: "巾", x: 72, y: 36, title: "茶巾", text: "茶巾被塞进竹帘后，带着很淡的苦杏仁味。你把它抽出来的一瞬间，竹帘后传来一声很轻的笑。", scare: true }
+      { id: "towel", icon: "巾", x: 72, y: 36, title: "茶巾", text: "茶巾被塞进竹帘后，带着很淡的苦杏仁味。你把它抽出来的一瞬间，竹帘后传来一声很轻的笑。", scare: true },
+      { id: "clock", icon: "钟", x: 42, y: 28, title: "停摆挂钟", text: "挂钟停在 20:47。钟摆被一截茶梗卡住，附近地面有一滴尚未干透的茶水。" },
+      { id: "call", icon: "话", x: 84, y: 73, title: "遗落手机", text: "手机屏幕裂开，通话记录停在 20:41。沈曼只说了一句话：'他已经准备公开账本了。'" }
     ];
 
     const suspects = [
@@ -824,12 +853,13 @@
       { id: "partner", name: "周启明", role: "合伙人", intro: "负责茶馆账务。坚持说自己 20:30 后一直在包间等合同。", secret: "他年轻时被林鹤年救过，也从那以后学会把感激当成债。亏空最初只是补家里的医疗费，后来变成一条不能回头的路。", questions: [
         ["账本为什么少了几页？", "旧账太乱，我撕掉的是废页。老板年纪大了，总疑神疑鬼。"],
         ["你和地产公司有什么交易？", "只是询价。茶馆撑不下去，总要有人处理现实。", ["ledger", "key"]],
-        ["监控空白时你在哪里？", "包间。没人能证明，但也没人能证明我出去过。", ["video"]]
+        ["监控空白时你在哪里？", "包间。没人能证明，但也没人能证明我出去过。", ["video"]],
+        ["包间电脑为什么登录过老板账号？", "我只是替他查旧账。删监控？那不是我做的。", ["falseConsent", "clock"]]
       ] },
       { id: "apprentice", name: "阿岚", role: "学徒", intro: "负责泡茶和打烊。药房小票让她显得很可疑。", secret: "她是被茶馆收留的孩子，最怕的不是警方，而是这个地方再次没人要。她替老板买药，也替周启明删了不该删的监控。", questions: [
         ["安眠药是你买的吗？", "是。老板最近睡不好，让我帮他买。药还在楼上药盒里，你可以查数量。", ["receipt"]],
         ["你知道茶巾的气味吗？", "苦杏仁？我只在仓库见过那瓶旧香精，师父以前拿它熏木盒。", ["towel"]],
-        ["你为什么害怕周启明？", "他让我删监控，说老板同意了。我后来发现老板那时候根本没上楼。", ["video"]]
+        ["你为什么害怕周启明？", "他让我删监控，说老板同意了。我后来发现老板那时候根本没上楼。", ["video"], "falseConsent"]
       ] },
       { id: "regular", name: "许伯", role: "老茶客", intro: "每天同一时间坐窗边。今晚他比平时早走了十分钟。", secret: "他见过太多次真相被一句“算了”盖住。七年前他沉默了一次，今晚他终于开口，但已经太晚。", questions: [
         ["你看见谁靠近茶桌？", "灯闪了一下。周先生从后廊出来，手里拿着茶巾。雨太大，我没看清杯子。", ["towel", "video"]],
@@ -839,7 +869,8 @@
       { id: "agent", name: "沈曼", role: "地产中介", intro: "带着转让合同来到茶馆。她说只负责谈价。", secret: "她看起来最冷，其实最清楚“旧地方”怎样被价格吞掉。她没有杀人，却把每个人的软处都换算成了谈判筹码。", questions: [
         ["后门钥匙为什么有你的封蜡？", "我给过周启明一袋文件，钥匙不是我的。封蜡可能蹭上去。", ["key"]],
         ["你见过老板吗？", "见过。他当面拒绝签字，还说明天会把亏空交给律师。", ["ledger"]],
-        ["监控空白时你在哪里？", "我在车里等消息。周启明说他会解决阻碍。", ["video", "ledger"]]
+        ["监控空白时你在哪里？", "我在车里等消息。周启明说他会解决阻碍。", ["video", "ledger"]],
+        ["20:41 的电话说了什么？", "我提醒他：林鹤年要公开账本。别的我没说。", ["call"]]
       ] }
     ];
 
@@ -848,7 +879,11 @@
       "key+video": "inferenceDoor",
       "key+ledger": "inferenceMotive",
       "ledger+note": "inferenceMotive",
-      "towel+video": "inferenceDoor"
+      "towel+video": "inferenceDoor",
+      "clock+video": "inferenceAlibi",
+      "kettle+towel": "inferencePoison",
+      "falseConsent+receipt": "inferenceDecoy",
+      "call+ledger": "inferenceMotive"
     };
 
     function hasAll(ids = []) {
@@ -916,6 +951,7 @@
           const q = person.questions[Number(btn.dataset.q)];
           state.dialogueTitle = person.name + "：" + q[0];
           state.dialogueText = q[1];
+          if (q[3]) addEvidence(q[3]);
           if (person.id === "apprentice" && q[0].includes("安眠药")) addEvidence("receipt");
           if (person.id === "regular" && q[0].includes("靠近")) addEvidence("towel");
           render();
@@ -937,6 +973,7 @@
       const rows = [
         ["19:08", "阿岚在药房购买安眠药，称是老板失眠所需。"],
         ["20:20", "林知雨与父亲争吵后上楼，周启明进入包间等待合同。"],
+        ["20:41", "沈曼拨给周启明一通短电话。电话之后，周启明离开包间的说法开始出现矛盾。"],
         ["20:43", "走廊监控开始缺失。后门锁没有撬痕。"],
         ["20:47", "许伯听见茶桌附近有杯盏碰撞声，随后看见周启明从后廊出来。"],
         ["20:50", "监控恢复。茶壶被重新添水，茶巾被藏进竹帘后。"],
@@ -1096,15 +1133,21 @@
     document.getElementById("verdictForm").addEventListener("submit", event => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
-      const correct = data.get("killer") === "partner" && data.get("motive") === "money" && data.get("method") === "cup";
-      const complete = hasAll(["inferenceCup", "inferenceDoor", "inferenceMotive"]);
+      const correct = data.get("killer") === "partner"
+        && data.get("motive") === "money"
+        && data.get("method") === "cup"
+        && data.get("route") === "backdoor"
+        && data.get("decoy") === "receipt";
+      const needed = ["inferenceCup", "inferenceDoor", "inferenceMotive", "inferenceAlibi", "inferencePoison", "inferenceDecoy"];
+      const complete = hasAll(needed);
+      const missing = needed.filter(id => !state.evidence.has(id)).map(id => evidence[id][0]);
       const result = document.getElementById("verdictResult");
       if (correct && complete) {
-        result.innerHTML = `<div class="result good"><strong>真相成立。</strong><br>周启明利用监控空白从后门进入，调换茶杯并用茶巾处理毒物载体。动机是掩盖账目亏空，同时推动茶馆低价转让。阿岚的小票只是烟雾弹，林知雨的争吵提供了误导。</div>`;
+        result.innerHTML = `<div class="result good"><strong>真相成立。</strong><br>周启明利用监控空白从后门进入，调换茶杯并用茶巾处理毒物载体。动机是掩盖账目亏空，同时推动茶馆低价转让。阿岚的小票只是烟雾弹，林知雨的争吵提供了第二层误导。<br><br><a class="button-link primary" href="#secrets">查看尾声</a></div>`;
       } else if (correct) {
-        result.innerHTML = `<div class="result bad"><strong>方向正确，但证据链不足。</strong><br>你锁定了周启明，但还需要通过证据组合补齐杯位、后门和财务动机三条推理。</div>`;
+        result.innerHTML = `<div class="result bad"><strong>方向正确，但证据链不足。</strong><br>你锁定了周启明，但还需要补齐：${missing.join("、")}。</div>`;
       } else {
-        result.innerHTML = `<div class="result bad"><strong>结论未成立。</strong><br>重新对照监控空白、后门钥匙、茶杯错位和账本夹页。真正的凶手需要同时具备进入机会、财务动机和处理茶杯的时间。</div>`;
+        result.innerHTML = `<div class="result bad"><strong>结论未成立。</strong><br>重新对照监控空白、后门钥匙、茶杯错位、通话记录、挂钟停摆和药房小票。真正的结论需要同时解释机会、路线、动机、手法和误导。</div>`;
       }
     });
 
